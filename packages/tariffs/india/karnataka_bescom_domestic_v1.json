@@ -1,0 +1,27 @@
+{
+  "id": "karnataka_bescom_domestic_v1",
+  "provider": "BESCOM (Karnataka)",
+  "state": "Karnataka",
+  "cities": ["Bengaluru", "Tumakuru", "Kolar"],
+  "category": "domestic",
+  "version": "2025.1",
+  "valid_from": "2025-04-01",
+  "currency": "INR",
+  "sample_notice": "sample, verify before use",
+  "slabs": [
+    { "from_kwh": 0, "to_kwh": 100, "rate_per_kwh": 4.75, "label": "0-100 units" },
+    { "from_kwh": 100, "to_kwh": 200, "rate_per_kwh": 6.75, "label": "101-200 units" },
+    { "from_kwh": 200, "to_kwh": null, "rate_per_kwh": 7.80, "label": "201+ units" }
+  ],
+  "fixed_charge": {
+    "type": "per_kw",
+    "amount_rs": 0.0,
+    "per_kw_rs": 120.0,
+    "default_kw": 2.0
+  },
+  "fppca_per_kwh": 0.65,
+  "duty_percent": 9.0,
+  "duty_base": "energy",
+  "other_fixed_rs": 10.0
+}
+

@@ -1,0 +1,46 @@
+{
+  "sample_notice": "sample, verify before use",
+  "tariffs": [
+    {
+      "id": "gujarat_dgvcl_domestic_v1",
+      "provider": "DGVCL (Gujarat)",
+      "state": "Gujarat",
+      "category": "domestic",
+      "version": "2025.1",
+      "file": "india/gujarat_dgvcl_domestic_v1.json"
+    },
+    {
+      "id": "gujarat_dgvcl_commercial_v1",
+      "provider": "DGVCL (Gujarat)",
+      "state": "Gujarat",
+      "category": "commercial",
+      "version": "2025.1",
+      "file": "india/gujarat_dgvcl_commercial_v1.json"
+    },
+    {
+      "id": "maharashtra_msedcl_domestic_v1",
+      "provider": "MSEDCL (Maharashtra)",
+      "state": "Maharashtra",
+      "category": "domestic",
+      "version": "2025.1",
+      "file": "india/maharashtra_msedcl_domestic_v1.json"
+    },
+    {
+      "id": "karnataka_bescom_domestic_v1",
+      "provider": "BESCOM (Karnataka)",
+      "state": "Karnataka",
+      "category": "domestic",
+      "version": "2025.1",
+      "file": "india/karnataka_bescom_domestic_v1.json"
+    },
+    {
+      "id": "delhi_bses_domestic_v1",
+      "provider": "BSES Rajdhani (Delhi)",
+      "state": "Delhi",
+      "category": "domestic",
+      "version": "2025.1",
+      "file": "india/delhi_bses_domestic_v1.json"
+    }
+  ]
+}
+

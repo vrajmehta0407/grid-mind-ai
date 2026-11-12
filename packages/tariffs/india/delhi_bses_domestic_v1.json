@@ -1,0 +1,28 @@
+{
+  "id": "delhi_bses_domestic_v1",
+  "provider": "BSES Rajdhani (Delhi)",
+  "state": "Delhi",
+  "cities": ["New Delhi", "South Delhi", "West Delhi"],
+  "category": "domestic",
+  "version": "2025.1",
+  "valid_from": "2025-04-01",
+  "currency": "INR",
+  "sample_notice": "sample, verify before use",
+  "slabs": [
+    { "from_kwh": 0, "to_kwh": 200, "rate_per_kwh": 3.00, "label": "0-200 units" },
+    { "from_kwh": 200, "to_kwh": 400, "rate_per_kwh": 4.50, "label": "201-400 units" },
+    { "from_kwh": 400, "to_kwh": 800, "rate_per_kwh": 6.50, "label": "401-800 units" },
+    { "from_kwh": 800, "to_kwh": null, "rate_per_kwh": 8.00, "label": "801+ units" }
+  ],
+  "fixed_charge": {
+    "type": "per_kw",
+    "amount_rs": 0.0,
+    "per_kw_rs": 125.0,
+    "default_kw": 2.0
+  },
+  "fppca_per_kwh": 1.35,
+  "duty_percent": 5.0,
+  "duty_base": "energy",
+  "other_fixed_rs": 0.0
+}
+

@@ -1,0 +1,27 @@
+{
+  "id": "gujarat_dgvcl_commercial_v1",
+  "provider": "DGVCL (Gujarat)",
+  "state": "Gujarat",
+  "cities": ["Surat", "Vadodara", "Ahmedabad", "Rajkot"],
+  "category": "commercial",
+  "version": "2025.1",
+  "valid_from": "2025-04-01",
+  "currency": "INR",
+  "sample_notice": "sample, verify before use",
+  "slabs": [
+    { "from_kwh": 0, "to_kwh": 100, "rate_per_kwh": 4.65, "label": "0-100 units" },
+    { "from_kwh": 100, "to_kwh": 300, "rate_per_kwh": 5.80, "label": "101-300 units" },
+    { "from_kwh": 300, "to_kwh": null, "rate_per_kwh": 6.75, "label": "301+ units" }
+  ],
+  "fixed_charge": {
+    "type": "per_kw",
+    "amount_rs": 0.0,
+    "per_kw_rs": 95.0,
+    "default_kw": 3.0
+  },
+  "fppca_per_kwh": 2.85,
+  "duty_percent": 20.0,
+  "duty_base": "energy_plus_fppca",
+  "other_fixed_rs": 30.0
+}
+

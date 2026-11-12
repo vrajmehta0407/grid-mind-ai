@@ -1,0 +1,28 @@
+{
+  "id": "maharashtra_msedcl_domestic_v1",
+  "provider": "MSEDCL (Maharashtra)",
+  "state": "Maharashtra",
+  "cities": ["Pune", "Mumbai Suburbs", "Nagpur", "Nashik"],
+  "category": "domestic",
+  "version": "2025.1",
+  "valid_from": "2025-04-01",
+  "currency": "INR",
+  "sample_notice": "sample, verify before use",
+  "slabs": [
+    { "from_kwh": 0, "to_kwh": 100, "rate_per_kwh": 4.71, "label": "0-100 units" },
+    { "from_kwh": 100, "to_kwh": 300, "rate_per_kwh": 10.29, "label": "101-300 units" },
+    { "from_kwh": 300, "to_kwh": 500, "rate_per_kwh": 14.55, "label": "301-500 units" },
+    { "from_kwh": 500, "to_kwh": null, "rate_per_kwh": 16.64, "label": "501+ units" }
+  ],
+  "fixed_charge": {
+    "type": "per_connection",
+    "amount_rs": 128.0,
+    "per_kw_rs": 0.0,
+    "default_kw": 2.0
+  },
+  "fppca_per_kwh": 1.17,
+  "duty_percent": 16.0,
+  "duty_base": "subtotal",
+  "other_fixed_rs": 20.0
+}
+

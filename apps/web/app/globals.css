@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --color-violet: #6D4AFF;
+  --color-lime: #B8F13B;
+  --color-ink: #14112B;
+  --color-mist: #F4F2FF;
+  --color-white: #FFFFFF;
+  --font-display: "Clash Display", "Inter", system-ui, -apple-system, sans-serif;
+  --font-sans: "Inter", "General Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+html,
+body {
+  background-color: #F4F2FF;
+  color: #14112B;
+  min-height: 100%;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Visible WCAG 2.2 focus ring */
+*:focus-visible {
+  outline: 3px solid #6D4AFF;
+  outline-offset: 2px;
+}
+
+/* Glass surfaces per design.md §3 */
+.glass {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 32px rgba(109, 74, 255, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 28px;
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(20px) saturate(165%);
+  -webkit-backdrop-filter: blur(20px) saturate(165%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 36px rgba(109, 74, 255, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border-radius: 28px;
+}
+
+.glass-violet {
+  background: rgba(109, 74, 255, 0.12);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(109, 74, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(109, 74, 255, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  border-radius: 28px;
+}
+
+.glass-lime {
+  background: rgba(184, 241, 59, 0.28);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(184, 241, 59, 0.65);
+  box-shadow: 0 8px 28px rgba(109, 74, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 28px;
+}
+
+@supports not (backdrop-filter: blur(18px)) {
+  .glass,
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.92);
+  }
+  .glass-violet {
+    background: #EBE5FF;
+  }
+  .glass-lime {
+    background: #EDFBC6;
+  }
+}
+
+/* Pinterest masonry: 4 cols desktop, 2 tablet, 1 mobile, 20px gap */
+.masonry-grid {
+  column-count: 1;
+  column-gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1280px) {
+  .masonry-grid {
+    column-count: 4;
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Aurora drift animations (30-45s loops) */
+@keyframes aurora-drift-1 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(6vw, 4vh, 0) scale(1.12);
+  }
+}
+
+@keyframes aurora-drift-2 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1.05);
+  }
+  50% {
+    transform: translate3d(-7vw, -5vh, 0) scale(0.95);
+  }
+}
+
+@keyframes aurora-drift-3 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(4vw, -6vh, 0) scale(1.08);
+  }
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes sticker-wiggle {
+  0%, 100% { transform: rotate(-4deg); }
+  25% { transform: rotate(-7deg) scale(1.04); }
+  75% { transform: rotate(-1deg) scale(1.04); }
+}
+
+.animate-aurora-1 {
+  animation: aurora-drift-1 34s ease-in-out infinite;
+}
+
+.animate-aurora-2 {
+  animation: aurora-drift-2 42s ease-in-out infinite;
+}
+
+.animate-aurora-3 {
+  animation: aurora-drift-3 38s ease-in-out infinite;
+}
+
+.animate-marquee {
+  animation: marquee-scroll 28s linear infinite;
+}
+
+.sticker-badge {
+  transform: rotate(-4deg);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sticker-badge:hover {
+  animation: sticker-wiggle 0.45s ease-in-out;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom What-if slider with Volt Lime thumb */
+input[type="range"].gridmind-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(109, 74, 255, 0.16);
+  cursor: pointer;
+}
+
+input[type="range"].gridmind-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: #B8F13B;
+  border: 3px solid #14112B;
+  box-shadow: 0 4px 12px rgba(109, 74, 255, 0.28);
+  transition: transform 0.15s ease;
+}
+
+input[type="range"].gridmind-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.12);
+}
+
+input[type="range"].gridmind-slider::-moz-range-thumb {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: #B8F13B;
+  border: 3px solid #14112B;
+  box-shadow: 0 4px 12px rgba(109, 74, 255, 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-aurora-1,
+  .animate-aurora-2,
+  .animate-aurora-3,
+  .animate-marquee {
+    animation: none !important;
+  }
+  .sticker-badge:hover {
+    animation: none !important;
+  }
+}

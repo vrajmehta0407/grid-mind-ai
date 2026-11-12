@@ -1,0 +1,26 @@
+services:
+  api:
+    image: python:3.12-slim
+    working_dir: /app/services/api
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../../:/app
+    environment:
+      - GRIDMIND_DEMO_MODE=true
+      - GRIDMIND_OFFLINE_WEATHER=0
+
+  web:
+    image: node:22-alpine
+    working_dir: /app/apps/web
+    command: sh -c "npm install -g pnpm && pnpm install && pnpm dev"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../../:/app
+    environment:
+      - FASTAPI_URL=http://api:8000
+    depends_on:
+      - api
+

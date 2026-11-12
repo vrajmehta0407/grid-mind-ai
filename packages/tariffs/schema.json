@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GridMind Versioned Tariff Table",
+  "type": "object",
+  "required": [
+    "id",
+    "provider",
+    "state",
+    "category",
+    "version",
+    "valid_from",
+    "sample_notice",
+    "slabs",
+    "fixed_charge",
+    "fppca_per_kwh",
+    "duty_percent",
+    "duty_base"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "provider": { "type": "string" },
+    "state": { "type": "string" },
+    "category": { "type": "string", "enum": ["domestic", "commercial"] },
+    "version": { "type": "string" },
+    "valid_from": { "type": "string", "format": "date" },
+    "currency": { "type": "string", "default": "INR" },
+    "sample_notice": { "type": "string", "const": "sample, verify before use" },
+    "slabs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["from_kwh", "to_kwh", "rate_per_kwh", "label"],
+        "properties": {
+          "from_kwh": { "type": "number", "minimum": 0 },
+          "to_kwh": { "type": ["number", "null"] },
+          "rate_per_kwh": { "type": "number", "minimum": 0 },
+          "label": { "type": "string" }
+        }
+      }
+    },
+    "fixed_charge": {
+      "type": "object",
+      "required": ["type", "amount_rs"],
+      "properties": {
+        "type": { "type": "string", "enum": ["per_connection", "per_kw"] },
+        "amount_rs": { "type": "number", "minimum": 0 },
+        "per_kw_rs": { "type": "number", "minimum": 0 },
+        "default_kw": { "type": "number", "minimum": 0 }
+      }
+    },
+    "fppca_per_kwh": { "type": "number", "minimum": 0 },
+    "duty_percent": { "type": "number", "minimum": 0 },
+    "duty_base": { "type": "string", "enum": ["energy", "energy_plus_fppca", "subtotal"] },
+    "other_fixed_rs": { "type": "number", "minimum": 0 }
+  }
+}
+
